@@ -12,6 +12,10 @@ RUN mv /data/test.php /var/www/html/
 RUN apt-get install -y supervisor
 RUN apt-get clean
 
+RUN echo "[supervisord] " >> /etc/supervisor/conf.d/supervisord.conf
+RUN echo "nodaemon=true" >> /etc/supervisor/conf.d/supervisord.conf
+RUN echo "user=root" >> /etc/supervisor/conf.d/supervisord.conf
+
 RUN echo "[program:apache2]" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo 'command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"' >> /etc/supervisor/conf.d/supervisord.conf
 
