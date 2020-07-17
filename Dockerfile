@@ -11,6 +11,5 @@ RUN mv /data/test.php /var/www/html/
 
 EXPOSE 80
 
-RUN echo 'service apache2 start' >> /startup.sh
-CMD ["sh", "/startup.sh"]
+CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
 
