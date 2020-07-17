@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install -y curl wget vim dialog software-properties-common
+apt-get install -y curl wget vim dialog supervisor software-properties-common
 
 
 add-apt-repository ppa:ondrej/php -y
@@ -38,3 +38,6 @@ apt-get install libapache2-mod-php7.4 apache2
 a2dismod mpm_event
 a2enmod mpm_prefork
 a2enmod php7.4
+
+mkdir -p /var/log/supervisor
+a2enmod rewrite
