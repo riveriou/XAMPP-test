@@ -45,3 +45,8 @@ function formatErrors($errors)
     }
 }
 ?>
+<h1> PHPinfo : </h1>
+
+<?php
+phpinfo();
+?>
