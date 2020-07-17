@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install -y curl wget vim dialog supervisor software-properties-common
+apt-get install -y curl wget vim dialog software-properties-common
 
 
 add-apt-repository ppa:ondrej/php -y
