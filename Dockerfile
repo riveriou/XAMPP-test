@@ -6,6 +6,8 @@ WORKDIR /data
 ADD . /data
 RUN chmod 755 /data/phpmssql.sh
 RUN /data/phpmssql.sh
+RUN rm /data/phpmssql.sh 
+RUN mv /data/test.php /var/www/html/
 
 EXPOSE 80
 CMD service apache2 start
