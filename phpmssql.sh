@@ -39,5 +39,3 @@ a2dismod mpm_event
 a2enmod mpm_prefork
 a2enmod php7.4
 
-mkdir -p /var/log/supervisor
-a2enmod rewrite
