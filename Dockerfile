@@ -10,5 +10,7 @@ RUN rm /data/phpmssql.sh
 RUN mv /data/test.php /var/www/html/
 
 EXPOSE 80
-CMD service apache2 start
+
+RUN echo 'service apache2 start' >> /startup.sh
+CMD ["sh", "/startup.sh"]
 
