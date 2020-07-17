@@ -17,7 +17,7 @@ RUN echo 'command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/ap
 
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo 'service apache2 restart' >> /startup.sh
-RUN echo 'exec supervisord -n' >> /startup.sh
+RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh 
 EXPOSE  80
