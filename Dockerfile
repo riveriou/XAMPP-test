@@ -23,7 +23,9 @@ RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo 'service apache2 restart' >> /startup.sh
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
-RUN chmod +x /startup.sh 
+RUN chmod +x /startup.sh
+RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
+
 EXPOSE  80
 CMD ["/startup.sh"]
 
