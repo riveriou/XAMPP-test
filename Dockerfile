@@ -2,6 +2,9 @@ FROM ubuntu:latest
 MAINTAINER River riou
 
 ENV DEBIAN_FRONTEND noninteractive
+
+RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
+
 WORKDIR /data
 ADD . /data
 RUN chmod 755 /data/phpmssql.sh
@@ -24,7 +27,6 @@ RUN echo 'service apache2 restart' >> /startup.sh
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh
-RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
 
 EXPOSE  80
 CMD ["/startup.sh"]
