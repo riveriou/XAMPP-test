@@ -9,9 +9,9 @@ RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei >
 
 WORKDIR /data
 ADD . /data
-RUN chmod 755 /data/phpmssql.sh
-RUN /data/phpmssql.sh
-RUN rm /data/phpmssql.sh 
+RUN chmod 755 /data/php5.6-mssql2019-mysql10.sh
+RUN /data/php5.6-mssql2019-mysql10.sh
+RUN rm /data/php5.6-mssql2019-mysql10.sh
 RUN mv /data/test.php /var/www/html/
 
 RUN apt-get install -y supervisor
@@ -26,6 +26,7 @@ RUN echo 'command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/ap
 
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo 'service apache2 restart' >> /startup.sh
+RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh
